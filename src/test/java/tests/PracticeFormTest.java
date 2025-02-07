@@ -50,14 +50,5 @@ public class PracticeFormTest {
         $("#city input").setValue("Agra").pressEnter();
 
         $("#submit").click();
-
-
-
-
-
-
-
-
     }
-
 }

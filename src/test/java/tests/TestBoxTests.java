@@ -22,14 +22,6 @@ public class TestBoxTests {
 
     }
 
-    @AfterAll
-    static void afterAll() {
-
-    }
-
-
-
-
     @Test
     void successfulSearchTest() {
 

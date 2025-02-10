@@ -1,8 +1,6 @@
-package tests;
+package test;
 
 import com.codeborne.selenide.Configuration;
-import net.bytebuddy.build.Plugin;
-import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 

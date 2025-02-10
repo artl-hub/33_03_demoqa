@@ -1,14 +1,12 @@
-package tests;
+package test;
 
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
-
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selectors.*;
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
 public class PracticeFormTest {
@@ -39,7 +37,7 @@ public class PracticeFormTest {
 
         $("label[for='hobbies-checkbox-1']").click(); // Выбирает "Sports"
 
-        $("#uploadPicture").uploadFile(new File("src/test/resources/logo_demo_qa.png"));
+        $("#uploadPicture").uploadFromClasspath("logo_demo_qa.png");
 
         $("#currentAddress").setValue("Unterdenlinden 12");
 
@@ -50,5 +48,21 @@ public class PracticeFormTest {
         $("#city input").setValue("Agra").pressEnter();
 
         $("#submit").click();
+
+
+        $(".modal-dialog").shouldBe(visible);
+
+        $(".table-responsive").shouldHave(
+                text("Student Name Alex Smith"),
+                text("Student Email alex@gmail.com"),
+                text("Gender Male"),
+                text("Mobile 2345234523"),
+                text("Date of Birth 14 July,1985"),
+                text("Subjects Maths"),
+                text("Hobbies Sports"),
+                text("Picture logo_demo_qa.png"),
+                text("Address Unterdenlinden 12"),
+                text("State and City Uttar Pradesh Agra")
+        );
     }
 }
